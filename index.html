@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vacation Quest: The Legend of Actually Logging Off</title>
+  <meta name="description" content="A playful choose-your-own-adventure single page app about taking a real vacation and not working while away." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#game-panel">Skip to adventure</a>
+  <header class="site-header" aria-labelledby="app-title">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100" role="img" focusable="false">
+        <path class="squiggle" d="M12 68 C20 42, 33 30, 52 29 C74 28, 88 44, 88 63 C88 77, 77 87, 62 88 C44 89, 29 83, 12 68Z"/>
+        <path class="ink" d="M33 63 C39 72, 56 75, 67 63"/>
+        <circle class="ink-fill" cx="38" cy="52" r="3"/>
+        <circle class="ink-fill" cx="64" cy="52" r="3"/>
+      </svg>
+    </div>
+    <div>
+      <p class="eyebrow">Vacation Quest</p>
+      <h1 id="app-title">The Legend of Actually Logging Off™</h1>
+      <p class="tagline">A tiny interactive reminder that if you work on vacation, you have merely relocated your desk.</p>
+    </div>
+  </header>
+
+  <main class="app-shell" id="main">
+    <section class="dashboard" aria-label="Vacation status">
+      <div class="meter-card">
+        <div class="meter-label-row">
+          <span class="meter-label">Vacation Meter</span>
+          <strong id="scoreText">100%</strong>
+        </div>
+        <div class="meter" aria-hidden="true"><div id="scoreBar" class="meter-fill"></div></div>
+        <p id="statusText" class="status-text">You are theoretically relaxed.</p>
+      </div>
+      <div class="passport-card">
+        <h2>Passport Stamps</h2>
+        <ul id="stampList" aria-live="polite"></ul>
+      </div>
+    </section>
+
+    <section class="story-card" id="game-panel" aria-labelledby="sceneTitle" tabindex="-1">
+      <div class="paper-grain" aria-hidden="true"></div>
+      <div class="scene-layout">
+        <figure class="comic-frame" aria-labelledby="graphicCaption">
+          <div id="sceneGraphic" class="graphic-stage" aria-hidden="true"></div>
+          <figcaption id="graphicCaption" class="sr-only">Cartoon illustration for the current vacation adventure scene.</figcaption>
+        </figure>
+        <div class="story-copy">
+          <p id="chapterLabel" class="chapter-label"></p>
+          <h2 id="sceneTitle"></h2>
+          <div id="sceneText" class="scene-text"></div>
+          <div id="choices" class="choices" role="group" aria-label="Choose what happens next"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="narrator-box" aria-labelledby="narratorTitle">
+      <h2 id="narratorTitle">Narrator Margin Notes</h2>
+      <p id="narratorNote">The narrator is sharpening a pencil and judging your notification settings.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built as a static single-page app. No tracking, no network calls, no excuses to check work email.</p>
+    <button id="restartButton" class="secondary-button" type="button">Restart Adventure</button>
+  </footer>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>
